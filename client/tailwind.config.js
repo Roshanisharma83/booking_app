@@ -10,6 +10,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+      colors: {
+          tw:{
+              blue:'#3b5998',
+              red:'#dd4b39'
+          }
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
