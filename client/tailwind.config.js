@@ -12,7 +12,7 @@ module.exports = {
     extend: {
       colors: {
           tw:{
-              blue:'#3b5998',
+              blue:'#003f67',
               red:'#dd4b39'
           }
       },
