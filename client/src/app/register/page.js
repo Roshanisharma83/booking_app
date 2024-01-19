@@ -4,11 +4,13 @@ import React, { Fragment } from 'react'
 import { MdOutlineMail } from "react-icons/md";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+import Layout from '@/components/layout/page';
 
 
 const signup = () => {
   return (
-    <div className='my-36'>
+    <div className=''>
+      <Layout>
       <Fragment>
         <div className='mt-5 w-80 border-solid m-auto m-0 '>
           <div className='grid grid-rows-2 gap-3'>
@@ -57,6 +59,7 @@ const signup = () => {
         </form>
         </div>
       </Fragment>
+      </Layout>
     </div>
   )
 }
