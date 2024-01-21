@@ -21,7 +21,7 @@ The application utilizes MongoDB as the database, Express.js for the server, Rea
   
 - Automated Payment Processing
 - chat pupup
-- Gust pickup by location
+- pickup by location
 - google map for hotel location
 
 
