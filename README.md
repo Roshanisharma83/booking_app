@@ -11,18 +11,20 @@ The application utilizes MongoDB as the database, Express.js for the server, Rea
 
 - User authentication and authorization
 - Browse and search for available hotels
+- check-in & check-out 
 - View detailed information about each hotel
 - Make hotel reservations for specific dates
 - hotel review (star rating and message )
-- Price calculation with Room Capacity
-- Update Availability in Real Time
+- search filter
+- Booking Summary
+- google map for hotel location
 
   ### phase two
   
 - Automated Payment Processing
 - chat pupup
 - pickup by location
-- google map for hotel location
+- Price calculation with Room Capacity
 
 
 
