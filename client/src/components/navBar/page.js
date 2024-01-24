@@ -1,7 +1,7 @@
 'use client'
 import React from 'react'
 import Link from 'next/link'
-import {Navbar, NavbarBrand, NavbarContent, Input,} from "@nextui-org/react";
+import {Button, NavbarBrand, NavbarContent, Input,} from "@nextui-org/react";
 import { Container } from 'postcss';
 
 const Nav = () => {
@@ -20,8 +20,10 @@ const Nav = () => {
           </ul>
       
           <div className="items-center m-auto">
-            <Link href='./login' type='button'className='hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg'>Login</Link>
-            <Link href='./register' type='button' className='hover:bg-tw-blue text-white py-2 px-4 border border-white rounded-lg' >Register</Link> 
+            {/* <Link href='./login' type='button'className='hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg'>{console.log('uuuu')}Login</Link>
+            <Link href='./register' type='button' className='hover:bg-tw-blue text-white py-2 px-4 border border-white rounded-lg' >Register</Link>  */}
+            <Button as={Link} href='/login' className='bg-tw-blue hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg'>Login</Button>
+            <Button as={Link} href='/register' className='bg-tw-blue hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg'>Register</Button>
           </div>
         </div>
       </div>
