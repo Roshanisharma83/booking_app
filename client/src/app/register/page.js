@@ -44,7 +44,7 @@ const Signup = () => {
     <Layout>
       {/* register form */}
       
-      <form className='mt-6 w-80 border-solid m-auto m-0' onSubmit={formik.handleSubmit}> 
+      <form className='mt-6 w-80 border-solid m-auto my-8' onSubmit={formik.handleSubmit}> 
         <h1 className="text-2xl font-bold  text-gray-800 w-80 mt-4 m-auto m-0">
           Sign up with email
         </h1>
