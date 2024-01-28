@@ -40,12 +40,13 @@ const Signup = () => {
     registerUser(values)
    },
  });
+ console.log(formik)
   return (
-    <Layout>
+    <div>
       {/* register form */}
-      
+     
       <form className='mt-6 w-80 border-solid m-auto my-8' onSubmit={formik.handleSubmit}> 
-        <h1 className="text-2xl font-bold  text-gray-800 w-80 mt-4 m-auto m-0">
+        <h1 className="text-2xl font-bold  text-gray-800 w-80 mt-4 m-auto ">
           Sign up with email
         </h1>
         <Input 
@@ -90,7 +91,7 @@ const Signup = () => {
         />
         <Button type='submit'className='bg-blue-800 text-white rounded-md px-4 py-2 border-solid w-80'>SIGNUP</Button>  
       </form>
-    </Layout> 
+   </div>
   );
 };
 export default Signup

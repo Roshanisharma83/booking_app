@@ -41,7 +41,7 @@ const Login = () => {
 
   return (
     
-<Layout>
+<div>
       <form className="className='mt-6 w-80 border-solid m-auto my-8" onSubmit={formik.handleSubmit}>
         <h2 className="my-8">Log In</h2>
         <Input
@@ -70,7 +70,7 @@ const Login = () => {
           Submit
         </Button>
       </form>
-      </Layout>
+      </div>
     
   );
 };
