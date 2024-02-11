@@ -8,9 +8,12 @@ import Layout from "@/components/layout/page";
 import { useRouter } from "next/navigation";
 import { FaFacebookF } from "react-icons/fa";
 import { FaGoogle } from "react-icons/fa";
+import { addUserDetails } from "@/redux/reducerSlice/userSlice";
+import { useDispatch } from "react-redux";
 
 const Login = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
 
   const SignupSchema = Yup.object().shape({
     email: Yup.string().required("Required"),
@@ -24,7 +27,8 @@ const Login = () => {
     });
     const data = await res.json();
     if (res.status == 200) {
-      router.push("/login");
+      dispatch(addUserDetails(data))
+      router.push("/home");
     }
     toast(data.msg);
   };
@@ -42,7 +46,7 @@ const Login = () => {
   return (
     
 <div>
-      <form className="className='mt-6 w-80 border-solid m-auto my-8" onSubmit={formik.handleSubmit}>
+      <form className="className='mt-6 w-80 border-solid m-auto my-8 bg-white" onSubmit={formik.handleSubmit}>
         <h2 className="my-8">Log In</h2>
         <Input
           className="my-6 pl-4 block w-full rounded-md border text-blueGray-600 p-2 text-md"

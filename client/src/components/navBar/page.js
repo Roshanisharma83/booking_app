@@ -1,86 +1,105 @@
 "use client";
 import React from "react";
+import {
+  Navbar,
+  Button,
+  NavbarBrand,
+  NavbarContent,
+  NavbarItem,
+  Input,
+  DropdownItem,
+  DropdownTrigger,
+  Dropdown,
+  DropdownMenu,
+  Avatar,
+} from "@nextui-org/react";
+import Image from "next/image";
 import Link from "next/link";
-import { Button, NavbarBrand, NavbarContent, Input } from "@nextui-org/react";
-import { Container } from "postcss";
-import Modal from 'react-modal';
-import Login from "@/app/login/page";
+import { useSelector, useDispatch } from "react-redux";
+import { logout } from "@/redux/reducerSlice/userSlice";
+import { useRouter } from "next/navigation";
 
-
-const Nav = () => {
-  const [modalIsOpen, setIsOpen] = React.useState(false);
-  function openModal() {
-    setIsOpen(true);
+export default function App() {
+  const dispatch = useDispatch()
+  const router = useRouter()
+  const { isLoggedIn, userDetails } = useSelector((state) => state.user);
+  
+  const handleLogout = ()=>{
+    dispatch(logout())
+    router.push('/')
   }
 
-  function afterOpenModal() {
-    // references are now sync'd and can be accessed.
-   
+  const handleRedirect = () =>{
+    const path = isLoggedIn ? '/home' : '/'
+    return path
   }
 
-  function closeModal() {
-    setIsOpen(false);
-  }
-  return (
-    <div>
-    <nav className="bg-tw-blue w-full px-10 flex">
-      <div className=" w-full flex flex-col-3">
-        <div className="mr-4 w-1/4 mt-4">
-          <img src="./logo.png" width={80} />
-        </div>
-        <div className="w-3/4 flex ">
-          <ul className="flex p-4 ">
-            <li className="p-4 cursor-pointer text-white list-none">
-              <a>Stays</a>
-            </li>
-            <li className="p-4 cursor-pointer text-white list-none">
-              <Link href="">Destination</Link>
-            </li>
-            <li className="p-4 cursor-pointer text-white list-none">
-              <a>Flights</a>
-            </li>
-            <li className="p-4 cursor-pointer text-white list-none">
-              <a>Attractions</a>
-            </li>
-          </ul>
-
-          <div className="items-center m-auto">
-            {/* <Link href='./login' type='button'className='hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg'>{console.log('uuuu')}Login</Link>
-            <Link href='./register' type='button' className='hover:bg-tw-blue text-white py-2 px-4 border border-white rounded-lg' >Register</Link>  */}
-            <Button
-              onClick={openModal}
-              as={Link}
-              href=""
-              className="bg-tw-blue hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg"
-            >
-              Login
-            </Button>
-            <Modal
-        isOpen={modalIsOpen}
-        onAfterOpen={afterOpenModal}
-        onRequestClose={closeModal}
-        
-        contentLabel="Example Modal"
-        
-      >
-        <button onClick={closeModal}>close</button>
-        <Login/>
-      </Modal>
-            <Button
-              as={Link}
-              href="/register"
-              className="bg-tw-blue hover:bg-tw-blue text-white mr-4 py-2 px-4   border border-white rounded-lg"
-            >
-              Register
-            </Button>
-          </div>
-        </div>
+  const LoggedInDrop = () => {
+    return (
+      <div className="flex gap-10 items-center">
+      <div className="flex gap-x-5 max-w-xl justify-center">
+      <Link href={'#'} className="font-semibold text-white hover:text-gray-300">Stays</Link>
+      <Link href={'#'} className="font-semibold text-white  hover:text-gray-300">Destination</Link>
+      <Link href={'#'} className="font-semibold text-white  hover:text-gray-300">Flights</Link>
+      <Link href={'#'} className="font-semibold text-white  hover:text-gray-300">Attractions</Link>
       </div>
-    </nav>
-    
-    </div>
-    
-  );
-};
+      <div>
+      <Dropdown placement="bottom-end">
+        <DropdownTrigger>
+          <Avatar
+            isBordered
+            as="button"
+            className="transition-transform"
+            color="secondary"
+            name="Jason Hughes"
+            size="sm"
+            src="https://i.pravatar.cc/150?u=a042581f4e29026704d"
+          />
+        </DropdownTrigger>
+        <DropdownMenu aria-label="Profile Actions" variant="flat">
+          <DropdownItem key="profile" className="h-14 gap-2">
+            <p className="font-semibold">Signed in as</p>
+            <p className="font-semibold">{userDetails?.email}</p>
+          </DropdownItem>
+          <DropdownItem key="Profile"><Link href={"#"}>Profile</Link></DropdownItem>
+          <DropdownItem key="team_settings">Team Settings</DropdownItem>
+          <DropdownItem key="analytics">Analytics</DropdownItem>
+          <DropdownItem key="system">System</DropdownItem>
+          <DropdownItem key="configurations">Configurations</DropdownItem>
+          <DropdownItem key="help_and_feedback">Help & Feedback</DropdownItem>
+          <DropdownItem onClick={handleLogout} key="logout" color="danger">
+            Log Out
+          </DropdownItem>
+        </DropdownMenu>
+      </Dropdown>
+      </div>
+      </div>
+    );
+  };
+  const AuthButtons = () => {
+    return (
+      <>
+        <Button as={Link} href="/login">
+          Login
+        </Button>
+        <Button as={Link} href="/register">
+          Register
+        </Button>
+      </>
+    );
+  };
+  return (
+    <Navbar isBordered className="bg-tw-blue h-20">
+      <NavbarContent justify="start">
+       <Link href={handleRedirect()}><NavbarBrand className="mr-4">
+          <Image src="/logo.png" width="80" height="90" />
+          
+        </NavbarBrand></Link>
+      </NavbarContent>
 
-export default Nav;
+      <NavbarContent as="div" className="flex items-center" justify="end">
+        {isLoggedIn ? <LoggedInDrop /> : <AuthButtons />}
+      </NavbarContent>
+    </Navbar>
+  );
+}
