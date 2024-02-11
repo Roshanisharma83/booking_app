@@ -33,6 +33,7 @@ const Signup = () => {
     phoneNumber: '',
     email: '',
     password: '',
+    role:''
      
    },
    validationSchema:SignupSchema,
@@ -89,6 +90,14 @@ const Signup = () => {
           value={formik.values.password}
           label="password" 
         />
+        <Input 
+          className='my-6 pl-4 block w-full rounded-md border text-blueGray-600 p-2 text-md'
+          id="role"
+          name="role"
+          type="text"
+          onChange={formik.handleChange}
+          value={formik.values.role}
+          label="role" />
         <Button type='submit'className='bg-blue-800 text-white rounded-md px-4 py-2 border-solid w-80'>SIGNUP</Button>  
       </form>
    </div>
