@@ -6,8 +6,8 @@ const page = () => {
   return (
     <div>
       <Layout>
-        <section className="text-gray-600 body-font">
-          <div className="container mx-auto">
+        {/* <section className="text-gray-600 body-font">
+          <div className="container mx-auto h-64 relative button-4">
             <div className="flex flex-col text-center w-full mb-20">
               <h1>Trusted by the largest travel brands</h1>
               <h1 className="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">
@@ -19,7 +19,7 @@ const page = () => {
             </div>
             
           </div> 
-        </section>
+        </section> */}
       </Layout>
     </div>
   );
