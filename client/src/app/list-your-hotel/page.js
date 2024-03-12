@@ -5,8 +5,8 @@ import * as Yup from "yup";
 
 const ListYourHotel = () => {
   return (
-    <div className="w-full">
-      <div className="justify-self-center m-auto ">
+    <div className="w-full ">
+      <div className="justify-self-center m-auto w-80">
         <h1>LIST YOUR HOTEL</h1>
         <p>Want to grow your Business. we are here for you</p>
         <br />
@@ -21,7 +21,7 @@ const ListYourHotel = () => {
         <label>
           Full_Name
           <Input
-            className="my-6 pl-4 block w-full rounded-md border text-blueGray-600 p-2 text-md"
+            className="my-4 pl-4 block w-full rounded-md border text-blueGray-600 text-md"
             type="text"
             id="Full_Name"
             label="Full Name"
@@ -34,7 +34,7 @@ const ListYourHotel = () => {
         <label>
           Email Address *
           <Input
-            className="my-6 pl-4 block w-full rounded-md border text-blueGray-600 p-2 text-md"
+            className="my-4 pl-4 block w-full rounded-md border text-blueGray-600 text-md"
             id="Email Address *"
             label="Email Address *"
             name="Email Address *"
@@ -47,7 +47,7 @@ const ListYourHotel = () => {
         <label>
           Mobile/Phone"
           <Input
-            className="my-6 pl-4 block w-full rounded-md border text-blueGray-600 p-2 text-md"
+            className="my-4 pl-4 block w-full rounded-md border text-blueGray-600 text-md bg-none"
             id="Mobile/Phone"
             label="Mobile/Phone"
             type="text"

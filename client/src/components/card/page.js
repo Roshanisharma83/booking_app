@@ -11,7 +11,7 @@ const Card = () => {
         <Link href="/nepal/chitwan">
           <Image
             className={styles.cardImage}
-            src="/tanzania.jpeg"
+            src="/nepal.jpeg"
             width={350}
             height={250}
             alt="Picture of the author"
@@ -27,15 +27,15 @@ const Card = () => {
         <Link href="/nepal/chitwan">
           <Image
             className={styles.cardImage}
-            src="/chitwan.jpeg"
+            src="/india.png"
             width={350}
             height={250}
             alt="Picture of the author"
           />
         </Link>
         <div className={styles.cardTitles}>
-          <h1>Nepal</h1>
-          <h2>22 Properties</h2>
+          <h1>India</h1>
+          <h2>10 Properties</h2>
         </div>
       </div>
 
@@ -43,15 +43,15 @@ const Card = () => {
         <Link href="/nepal/chitwan">
           <Image
             className={styles.cardImage}
-            src="/tanzania.jpeg"
+            src="/bangkok.jpeg"
             width={350}
             height={250}
             alt="Picture of the author"
           />
         </Link>
         <div className={styles.cardTitles}>
-          <h1>Nepal</h1>
-          <h2>22 Properties</h2>
+          <h1>Bangkok</h1>
+          <h2>12 Properties</h2>
         </div>
       </div>
     </div>
