@@ -1,10 +1,14 @@
 'use client'
 import React from "react";
 import Layout from "@/components/layout/page";
+
 const page = () => {
   //const (count) = useSelector
   return (
     <div>
+     
+    
+  
       <Layout>
         {/* <section className="text-gray-600 body-font">
           <div className="container mx-auto h-64 relative button-4">
@@ -21,6 +25,7 @@ const page = () => {
           </div> 
         </section> */}
       </Layout>
+     
     </div>
   );
 };

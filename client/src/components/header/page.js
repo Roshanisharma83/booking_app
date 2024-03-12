@@ -17,10 +17,14 @@ import { format } from "date-fns";
 //import { DateRangePicker } from '@mui/x-date-pickers-pro/DateRangePicker';
 
 import "react-datepicker/dist/react-datepicker.css";
+import Link from "next/link";
+import { useNavigate } from "react-router-dom";
+import { useRouter } from 'next/navigation'
 
 const Header = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [openDate, setOpenDate] = useState(false);
+  const [destination, setDestination] = useState("")
   const [date, setDate] = useState([
     {
       startDate: new Date(),
@@ -35,6 +39,7 @@ const Header = () => {
     childern: 0,
     room: 1,
   });
+  const router = useRouter()
   const handleOption = (name, operation) => {
 
 
@@ -57,6 +62,13 @@ const Header = () => {
   //     setOptions(options - 1)
   //   }
   // }
+  const handleSearch = () => {
+    
+    router.push('/hotels', { query: { param: 'xxx' } })
+    
+  }
+  
+  
 
   return (
     <div>
@@ -68,7 +80,7 @@ const Header = () => {
           {/* search place */}
           <div className="w-72 border rounded-lg p-2 flex">
             <IoBedOutline className="mr-2 mt-1" />
-            <input type="text" placeholder="Where are you going" className="" />
+            <input type="text" placeholder="Where are you going" className="" onChange={e => setDestination(e.target.value)}/>
           </div>
           <div className="w-72 border rounded-lg p-2 flex z-50">
             <CiCalendar className="mr-2 mt-1" />
@@ -159,9 +171,14 @@ const Header = () => {
             </div>
 )}
           </div>
-          <Button className="bg-tw-blue rounded-lg text-white px-4">
+          
+          {/* <Button className="bg-tw-blue rounded-lg text-white px-4">
             Search
-          </Button>
+          </Button> */}
+          <Button type="button" onClick={(handleSearch)}>
+          Search
+        </Button>
+          
         </div>
       </div>
     </div>
